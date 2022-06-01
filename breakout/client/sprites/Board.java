@@ -272,26 +272,33 @@ public class Board extends JPanel {
                         }
     
                         bricks[k].hit();
+                        //If brick is destroyed ask the server
                         if(bricks[k].isDestroyed()){
                             score+=bricks[i].getPoints();
                             paddle.resize(1, bricks[k].getColor()+".png");
                             switch(bricks[k].getSurprise())
                             {
+                                //agrega nueva bola
                                 case 1:
                                 vBall.add(new Ball());
                                 break;
+                                //aumenta velocidad
                                 case 2:
                                 vBall.get(i).speed(true);
                                 break;
+                                //resta velocidad
                                 case 3:
                                 vBall.get(i).speed(false);
                                 break;
+                                //agrega vidas
                                 case 4:
                                 lifes++;
                                 break;
+                                //doble tamano de raqueta
                                 case 5:
                                 paddle.resize(2, bricks[k].getColor()+".png");
                                 break;
+                                //mitad de tamano de raqueta
                                 case 6:
                                 paddle.resize(1/2, bricks[k].getColor()+".png");
                                 break;
