@@ -3,18 +3,18 @@ import javax.swing.*;
 
 public class Brick extends Sprite {
 
-    private int hits;
-    private int count;
-    private int surprise;
+    private java.lang.Integer hits;
+    private java.lang.Integer count;
+    private java.lang.Integer surprise;
     private String color;
-    private int points;
+    private java.lang.Integer points;
 
-    public Brick(int x, int y, int hits, int surprise,int points, String color) {
+    public Brick(java.lang.Integer x, java.lang.Integer y, java.lang.Integer hits, java.lang.Integer surprise,java.lang.Integer points, String color) {
 
         initBrick(x, y, hits, surprise, points, color);
     }
 
-    private void initBrick(int x, int y, int hits, int surprise, int points ,String color) {
+    private void initBrick(java.lang.Integer x, java.lang.Integer y, java.lang.Integer hits, java.lang.Integer surprise, java.lang.Integer points ,String color) {
         
         this.x = x;
         this.y = y;
@@ -42,10 +42,10 @@ public class Brick extends Sprite {
     void hit(){
         count++;
     }
-    int getSurprise(){
+    java.lang.Integer getSurprise(){
         return surprise;
     }
-    int getPoints(){
+    java.lang.Integer getPoints(){
         return points;
     }
     String getColor(){

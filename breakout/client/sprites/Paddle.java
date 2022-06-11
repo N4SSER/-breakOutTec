@@ -2,14 +2,23 @@ package client.sprites;
 import java.awt.event.*;
 import javax.swing.*;
 public class Paddle extends Sprite  {
-    private int dx;
 
-    public Paddle() {
+    private java.lang.Integer dx;
+    private static Paddle paddle = null;
+
+    private Paddle() {
 
         initPaddle();
     }
+    public static Paddle getInstancPaddle()
+    {
+        if(paddle == null)
+            paddle = new Paddle();
 
+        return paddle;
+    }
     private void initPaddle() {
+        dx = 0;
         loadImage();
         getImageDimensions();
 
@@ -31,15 +40,15 @@ public class Paddle extends Sprite  {
             x = 0;
         }
 
-        if (x >= Commons.WIDTH - imageWidth) {
+        if (x >= Constants.WIDTH - imageWidth) {
 
-            x = Commons.WIDTH - imageWidth;
+            x = Constants.WIDTH - imageWidth;
         }
     }
 
     void keyPressed(KeyEvent e) {
 
-        int key = e.getKeyCode();
+        java.lang.Integer key = e.getKeyCode();
 
         if (key == KeyEvent.VK_LEFT) {
 
@@ -54,7 +63,7 @@ public class Paddle extends Sprite  {
 
     void keyReleased(KeyEvent e) {
 
-        int key = e.getKeyCode();
+        java.lang.Integer key = e.getKeyCode();
 
         if (key == KeyEvent.VK_LEFT) {
 
@@ -69,19 +78,19 @@ public class Paddle extends Sprite  {
 
     private void resetState() {
 
-        x = Commons.INIT_PADDLE_X;
-        y = Commons.INIT_PADDLE_Y;
+        x = Constants.INIT_PADDLE_X;
+        y = Constants.INIT_PADDLE_Y;
     }
 
-    void resize(float size, String s)
+    void resize(java.lang.Integer size, String s)
     {
         var ii = new ImageIcon("breakout/client/sprites/resources/"+s);
         image = ii.getImage();
         if(size<1){
-            image = image.getScaledInstance(imageWidth*(1/((int)size)), imageHeight, java.awt.Image.SCALE_DEFAULT);
+            image = image.getScaledInstance(imageWidth*(1/size), imageHeight, java.awt.Image.SCALE_DEFAULT);
         }
         else{
-        image = image.getScaledInstance(imageWidth*((int) size), imageHeight, java.awt.Image.SCALE_DEFAULT);
+        image = image.getScaledInstance(imageWidth*(size), imageHeight, java.awt.Image.SCALE_DEFAULT);
         }
     }
 }

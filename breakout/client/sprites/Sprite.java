@@ -2,38 +2,38 @@ package client.sprites;
 import java.awt.*;
 public class Sprite {
 
-    int x;
-    int y;
-    int imageWidth;
-    int imageHeight;
+    java.lang.Integer x;
+    java.lang.Integer y;
+    java.lang.Integer imageWidth;
+    java.lang.Integer imageHeight;
     Image image;
 
-    protected void setX(int x) {
+    protected void setX(java.lang.Integer x) {
 
         this.x = x;
     }
 
-    int getX() {
+    java.lang.Integer getX() {
 
         return x;
     }
 
-    protected void setY(int y) {
+    protected void setY(java.lang.Integer y) {
 
         this.y = y;
     }
 
-    int getY() {
+    java.lang.Integer getY() {
 
         return y;
     }
 
-    int getImageWidth() {
+    java.lang.Integer getImageWidth() {
 
         return imageWidth;
     }
 
-    int getImageHeight() {
+    java.lang.Integer getImageHeight() {
 
         return imageHeight;
     }
