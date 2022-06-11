@@ -3,9 +3,9 @@ import javax.swing.*;
 
 public class Ball extends Sprite {
 
-    private float xdir;
-    private float ydir;
-    private float speed;
+    private java.lang.Integer xdir;
+    private java.lang.Integer ydir;
+    private java.lang.Integer speed;
     public Ball() {
 
         initBall();
@@ -26,7 +26,7 @@ public class Ball extends Sprite {
         var ii = new ImageIcon("breakout/client/sprites/resources/ball.png");
         image = ii.getImage();
     }
-    void speed(boolean ii){
+    void speed(java.lang.Boolean ii){
         if(ii){
             if(speed>3){
                 speed = 3;
@@ -54,7 +54,7 @@ public class Ball extends Sprite {
             setXDir(1);
         }
 
-        if (x == Commons.WIDTH - imageWidth) {
+        if (x == Constants.WIDTH - imageWidth) {
 
             System.out.println(imageWidth);
             setXDir(-1);
@@ -68,21 +68,21 @@ public class Ball extends Sprite {
 
     private void resetState() {
 
-        x = Commons.INIT_BALL_X;
-        y = Commons.INIT_BALL_Y;
+        x = Constants.INIT_BALL_X;
+        y = Constants.INIT_BALL_Y;
     }
 
-    void setXDir(float x) {
+    void setXDir(java.lang.Integer x) {
 
         xdir = x;
     }
 
-    void setYDir(float y) {
+    void setYDir(java.lang.Integer y) {
 
         ydir = y;
     }
 
-    float getYDir() {
+    java.lang.Integer getYDir() {
 
         return ydir;
     }

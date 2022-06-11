@@ -4,14 +4,14 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Vector;
 
-public class Board extends JPanel {
+public class Board extends JPanel implements Constants {
 
     private Timer timer;
     private Paddle paddle;
     private Brick[] bricks;
-    private boolean inGame = true;
-    private int lifes = 3;
-    private int score = 0;
+    private java.lang.Boolean inGame = true;
+    private java.lang.Integer lifes = 3;
+    private java.lang.Integer score = 0;
     private Vector<Ball> vBall = new Vector<Ball>();
     private String message = "Game Over";
 
@@ -24,20 +24,20 @@ public class Board extends JPanel {
 
         addKeyListener(new TAdapter());
         setFocusable(true);
-        setPreferredSize(new Dimension(Commons.WIDTH, Commons.HEIGHT));
+        setPreferredSize(new Dimension(Constants.WIDTH, Constants.HEIGHT));
 
         gameInit();
     }
 
     private void gameInit() {
 
-        bricks = new Brick[Commons.N_OF_BRICKS];
+        bricks = new Brick[Constants.N_OF_BRICKS];
         vBall.add(new Ball());
-        paddle = new Paddle();
+        paddle = Paddle.getInstancPaddle();
 
-        int k = 0;
+        java.lang.Integer k = 0;
 
-        for (int i = 0; i < 8; i++) {
+        for (java.lang.Integer i = 0; i < 8; i++) {
             String color="red";
             if(i<2)
                 color = "green";
@@ -46,14 +46,14 @@ public class Board extends JPanel {
             if(i>=4&&i<6)
                 color = "orange";
 
-            for (int j = 0; j < 13; j++) {
+            for (java.lang.Integer j = 0; j < 13; j++) {
 
                 bricks[k] = new Brick(j * 40 + 30, i * 10 + 50,1,0,1,color); //hits, surprise y points son asignados desde el servidor
                 k++;
             }
         }
 
-        timer = new Timer(Commons.PERIOD, new GameCycle());
+        timer = new Timer(Constants.PERIOD, new GameCycle());
         timer.start();
     }
 
@@ -88,11 +88,11 @@ public class Board extends JPanel {
         g2d.setColor(Color.BLACK);
         g2d.setFont(font);
 
-        g2d.drawString("Lifes: "+String.valueOf(lifes),(Commons.WIDTH - fontMetrics.stringWidth(String.valueOf(lifes)))/ 12, Commons.WIDTH/16);
+        g2d.drawString("Lifes: "+String.valueOf(lifes),(Constants.WIDTH - fontMetrics.stringWidth(String.valueOf(lifes)))/ 12, Constants.WIDTH/16);
         
-        g2d.drawString(String.valueOf("Score: " + score), (Commons.WIDTH - fontMetrics.stringWidth(String.valueOf("Points:      " + score))), Commons.WIDTH/16);
+        g2d.drawString(String.valueOf("Score: " + score), (Constants.WIDTH - fontMetrics.stringWidth(String.valueOf("Points:      " + score))), Constants.WIDTH/16);
 
-        for(int i =0;i<vBall.size();i++){
+        for(java.lang.Integer i =0;i<vBall.size();i++){
             g2d.drawImage(vBall.get(i).getImage(), vBall.get(i).getX(), vBall.get(i).getY(),
             vBall.get(i).getImageWidth(), vBall.get(i).getImageHeight(), this);
         }
@@ -100,7 +100,7 @@ public class Board extends JPanel {
         g2d.drawImage(paddle.getImage(), paddle.getX(), paddle.getY(),
                 paddle.getImageWidth(), paddle.getImageHeight(), this);
 
-        for (int i = 0; i < Commons.N_OF_BRICKS; i++) {
+        for (java.lang.Integer i = 0; i < Constants.N_OF_BRICKS; i++) {
 
             if (!bricks[i].isDestroyed()) {
 
@@ -119,11 +119,11 @@ public class Board extends JPanel {
         g2d.setColor(Color.BLACK);
         g2d.setFont(font);
         g2d.drawString(message,
-                (Commons.WIDTH - fontMetrics.stringWidth(message)) / 2,
-                Commons.WIDTH / 4);
+                (Constants.WIDTH - fontMetrics.stringWidth(message)) / 2,
+                Constants.WIDTH / 4);
         g2d.drawString( "\nYour score: " + String.valueOf(score),
-                (Commons.WIDTH - fontMetrics.stringWidth( "\nYour score: " + String.valueOf(score))) / 2,
-                Commons.WIDTH / 3);
+                (Constants.WIDTH - fontMetrics.stringWidth( "\nYour score: " + String.valueOf(score))) / 2,
+                Constants.WIDTH / 3);
         if(message.equals("Game Over")){
             var ii = new ImageIcon("breakout/client/sprites/resources/lose.png");
             g2d.drawImage(ii.getImage(), 370, 230, 150, 150, null);
@@ -163,7 +163,7 @@ public class Board extends JPanel {
 
     private void doGameCycle() {
 
-        for(int i = 0; i<vBall.size();i++)
+        for(java.lang.Integer i = 0; i<vBall.size();i++)
         {
             vBall.get(i).move();
         }
@@ -180,9 +180,9 @@ public class Board extends JPanel {
 
     private void checkCollision() {
         
-        for(int i = 0; i<vBall.size();i++){
+        for(java.lang.Integer i = 0; i<vBall.size();i++){
             
-            if (vBall.get(i).getRect().getMaxY() > Commons.BOTTOM_EDGE) {
+            if (vBall.get(i).getRect().getMaxY() > Constants.BOTTOM_EDGE) {
 
                 lifes--;
                 vBall.remove(i);
@@ -199,14 +199,16 @@ public class Board extends JPanel {
             }
     
             if ((vBall.get(i).getRect()).intersects(paddle.getRect())) {
-    
-                int paddleLPos = (int) paddle.getRect().getMinX();
-                int ballLPos = (int) vBall.get(i).getRect().getMinX();
-    
-                int first = paddleLPos + 8;
-                int second = paddleLPos + 16;
-                int third = paddleLPos + 24;
-                int fourth = paddleLPos + 32;
+                
+
+                java.lang.Double tmp = paddle.getRect().getMinX();
+                java.lang.Integer paddleLPos =  tmp.intValue();
+                tmp = vBall.get(i).getRect().getMinX();
+                java.lang.Integer ballLPos = tmp.intValue();
+                java.lang.Integer first = paddleLPos + 8;
+                java.lang.Integer second = paddleLPos + 16;
+                java.lang.Integer third = paddleLPos + 24;
+                java.lang.Integer fourth = paddleLPos + 32;
     
                 if (ballLPos < first) {
     
@@ -239,14 +241,17 @@ public class Board extends JPanel {
                 }
             }
     
-            for (int k = 0; k < Commons.N_OF_BRICKS; k++) {
+            for (java.lang.Integer k = 0; k < Constants.N_OF_BRICKS; k++) {
     
                 if ((vBall.get(i).getRect()).intersects(bricks[k].getRect())) {
-    
-                    int ballLeft = (int) vBall.get(i).getRect().getMinX();
-                    int ballHeight = (int) vBall.get(i).getRect().getHeight();
-                    int ballWidth = (int) vBall.get(i).getRect().getWidth();
-                    int ballTop = (int) vBall.get(i).getRect().getMinY();
+                    java.lang.Double tmp = vBall.get(i).getRect().getMinX();
+                    java.lang.Integer ballLeft = tmp.intValue();
+                    tmp = vBall.get(i).getRect().getHeight();
+                    java.lang.Integer ballHeight = tmp.intValue();
+                    tmp =  vBall.get(i).getRect().getWidth();
+                    java.lang.Integer ballWidth = tmp.intValue();
+                    tmp = vBall.get(i).getRect().getMinY();
+                    java.lang.Integer ballTop = tmp.intValue();
     
                     var pointRight = new Point(ballLeft + ballWidth + 1, ballTop);
                     var pointLeft = new Point(ballLeft - 1, ballTop);
@@ -301,14 +306,14 @@ public class Board extends JPanel {
                 }
             }
         }
-        for (int x = 0, j = 0; x < Commons.N_OF_BRICKS; x++) {
+        for (java.lang.Integer x = 0, j = 0; x < Constants.N_OF_BRICKS; x++) {
 
             if (bricks[x].isDestroyed()) {
 
                 j++;
             }
 
-            if (j == Commons.N_OF_BRICKS) {
+            if (j == Constants.N_OF_BRICKS) {
 
                 message = "Victory!";
                 stopGame();
