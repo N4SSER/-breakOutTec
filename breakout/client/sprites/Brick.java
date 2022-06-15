@@ -52,4 +52,15 @@ public class Brick extends Sprite {
         return color;
     }
 
+    void set_Points(int n){
+        this.points = n;
+    }
+
+    void set_hits(int n){
+        this.hits = n;
+    }
+
+    void set_surpride(int n){
+        this.surprise = n;
+    }
 }
