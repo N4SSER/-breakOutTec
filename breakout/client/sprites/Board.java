@@ -70,12 +70,22 @@ public class Board extends JPanel implements Constants {
 
                 if(action.intValue() == 1){
                     java.lang.Integer levelfactor;
+                    
                     levelfactor = 26*(number1)-1;
-                    for (java.lang.Integer i = levelfactor-25;i<levelfactor;i++){
+                    System.out.println(" "+(levelfactor-25)+","+levelfactor);
+                    /**
+                     * looping through the bricks of the selected group to change the value of the points
+                     */
+                    for (java.lang.Integer i = (levelfactor-25);i<levelfactor;i++){
                         bricks[i].set_Points(number2);
+                        System.out.println("Brick "+i+" with "+number2+" points");
                     }
-                    System.out.println("Nivel "+number1+"tiene "+number2+" puntos");
+                    System.out.println("Nivel "+number1+" tiene "+number2+" puntos");
                 } else {
+
+                    /**
+                     * Changing from coordinates to list indexs
+                     */
                     java.lang.Integer index = (number1-1)*13+number2-1;
                     if(action.intValue() == 2){
                         //asigna vidas
