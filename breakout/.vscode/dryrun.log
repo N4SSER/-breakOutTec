@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/abner/Desktop/TC3/breakOutTec/breakout'
+make: Leaving directory '/home/abner/Desktop/TC3/breakOutTec/breakout'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+

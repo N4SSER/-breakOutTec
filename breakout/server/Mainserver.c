@@ -117,10 +117,10 @@ int main()
 
         //Se envia el entero transformado
         Escribe_Socket(Socket_Cliente, (char *)&Aux, sizeof(Longitud_Cadena));
-
+        
         //Se envia la cadena
         Escribe_Socket(Socket_Cliente, message, Longitud_Cadena);
-        printf("%s\n", message);
+        //printf("%s\n", message);
 
     }
 

@@ -60,7 +60,7 @@ public class Brick extends Sprite {
         this.hits = n;
     }
 
-    void set_surpride(int n){
+    void set_surprise(int n){
         this.surprise = n;
     }
 }

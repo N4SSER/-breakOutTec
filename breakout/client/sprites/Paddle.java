@@ -86,11 +86,11 @@ public class Paddle extends Sprite  {
     {
         var ii = new ImageIcon("breakout/client/sprites/resources/"+s);
         image = ii.getImage();
-        if(size<1){
-            image = image.getScaledInstance(imageWidth*(1/size), imageHeight, java.awt.Image.SCALE_DEFAULT);
+        if(size<2){
+            this.image = this.image.getScaledInstance(imageWidth/2, imageHeight, java.awt.Image.SCALE_DEFAULT);
         }
         else{
-        image = image.getScaledInstance(imageWidth*(size), imageHeight, java.awt.Image.SCALE_DEFAULT);
+        this.image = this.image.getScaledInstance(imageWidth*2, imageHeight, java.awt.Image.SCALE_DEFAULT);
         }
     }
 }

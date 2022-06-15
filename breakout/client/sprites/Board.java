@@ -2,7 +2,11 @@ package client.sprites;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.util.StringTokenizer;
 import java.util.Vector;
+import client.socketthread.*;
 
 public class Board extends JPanel implements Constants {
 
@@ -14,11 +18,13 @@ public class Board extends JPanel implements Constants {
     private java.lang.Integer score = 0;
     private Vector<Ball> vBall = new Vector<Ball>();
     private String message = "Game Over";
+    private DataInputStream in_stream;
 
-    public Board() {
-
+    public Board(DataInputStream in_stream) {
+        this.in_stream = in_stream;
         initBoard();
     }
+
 
     private void initBoard() {
 
@@ -27,14 +33,73 @@ public class Board extends JPanel implements Constants {
         setPreferredSize(new Dimension(Constants.WIDTH, Constants.HEIGHT));
 
         gameInit();
+
     }
 
+    public void checkMessages(){
+        while(true){
+            try {
+                System.out.println(this.in_stream.readUTF());
+                String message = this.in_stream.readUTF();
+                java.lang.Integer action;
+                java.lang.Integer number1;
+                java.lang.Integer number2;
+
+                StringTokenizer st = new StringTokenizer(message,",");
+                action = Integer.parseInt(st.nextToken());
+                System.out.println(action);
+                number1 = Integer.parseInt(st.nextToken());
+                System.out.println(number1);
+                number2 = Integer.parseInt(st.nextToken());
+                System.out.println(number2);
+
+                if(action.intValue() == 1){
+                    java.lang.Integer levelfactor;
+                    levelfactor = 26*(number1)-1;
+                    for (java.lang.Integer i = levelfactor-25;i<levelfactor;i++){
+                        bricks[i].set_Points(number2);
+                    }
+                    System.out.println("Nivel "+number1+"tiene "+number2+" puntos");
+                } else {
+                    java.lang.Integer index = (number1-1)*13+number2-1;
+                    if(action.intValue() == 2){
+                        //asigna vidas
+                        bricks[index].set_surprise(4);
+                        System.out.println("Asigna vidas a "+number1+","+number2);
+                    } else if (action.intValue() == 3){
+                        //asigna bola
+                        bricks[index].set_surprise(1);
+                        System.out.println("Asigna bola a "+number1+","+number2);
+                    } else if (action.intValue() == 4){
+                        //asigna raqueta doble
+                        bricks[index].set_surprise(5);
+                        System.out.println("Asigna raqueta doble a "+number1+","+number2);
+                    } else if (action.intValue() == 5){
+                        //asigna raqueta mitad
+                        bricks[index].set_surprise(6);
+                        System.out.println("Asigna raqueta mitad a "+number1+","+number2);
+                    } else if(action.intValue() == 6){
+                        //asigna velocidad mas
+                        bricks[index].set_surprise(2);
+                        System.out.println("Asigna velocidad mas a "+number1+","+number2);
+                    } else if(action.intValue() == 7){
+                        //asigna velocidad menos
+                        bricks[index].set_surprise(3);
+                        System.out.println("Asigna velocidad menos a "+number1+","+number2);
+                    }
+                }
+            } catch (IOException e){
+                System.out.println(e.getMessage());
+                continue;
+            }
+        }
+    }
     private void gameInit() {
 
         bricks = new Brick[Constants.N_OF_BRICKS];
         vBall.add(new Ball());
         paddle = Paddle.getInstancPaddle();
-
+        MessageListener msg_listener = new MessageListener(this);
         java.lang.Integer k = 0;
 
         for (java.lang.Integer i = 0; i < 8; i++) {
@@ -55,6 +120,7 @@ public class Board extends JPanel implements Constants {
 
         timer = new Timer(Constants.PERIOD, new GameCycle());
         timer.start();
+        msg_listener.start();
     }
 
     @Override
@@ -125,11 +191,11 @@ public class Board extends JPanel implements Constants {
                 (Constants.WIDTH - fontMetrics.stringWidth( "\nYour score: " + String.valueOf(score))) / 2,
                 Constants.WIDTH / 3);
         if(message.equals("Game Over")){
-            var ii = new ImageIcon("breakout/client/sprites/resources/lose.png");
+            var ii = new ImageIcon("client/sprites/resources/lose.png");
             g2d.drawImage(ii.getImage(), 370, 230, 150, 150, null);
         }
         else{
-            var ii = new ImageIcon("breakout/client/sprites/resources/win.png");
+            var ii = new ImageIcon("client/sprites/resources/win.png");
             g2d.drawImage(ii.getImage(), 0, 140, 250, 250, null);
         }
         g2d.dispose();
@@ -185,7 +251,7 @@ public class Board extends JPanel implements Constants {
             if (vBall.get(i).getRect().getMaxY() > Constants.BOTTOM_EDGE) {
 
                 lifes--;
-                vBall.remove(i);
+                vBall.removeElementAt(i);
                 if(lifes<1){
                     stopGame();
                     break;
@@ -301,11 +367,11 @@ public class Board extends JPanel implements Constants {
                                 break;
                                 //doble tamano de raqueta
                                 case 5:
-                                paddle.resize(2, bricks[k].getColor()+".png");
+                                paddle.resize(1, bricks[k].getColor()+".png");
                                 break;
                                 //mitad de tamano de raqueta
                                 case 6:
-                                paddle.resize(1/2, bricks[k].getColor()+".png");
+                                paddle.resize(2, bricks[k].getColor()+".png");
                                 break;
                             }
                         }

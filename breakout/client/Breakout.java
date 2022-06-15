@@ -4,6 +4,9 @@ import javax.swing.JFrame;
 import client.sprites.Board;
 
 import java.awt.EventQueue;
+import java.io.DataInputStream;
+import java.net.Socket;
+
 
 public class Breakout extends JFrame {
 
@@ -13,14 +16,20 @@ public class Breakout extends JFrame {
     }
 
     private void initUI() {
+        try {
+            Socket socket = new Socket("localhost", 35557);
+            DataInputStream in_stream = new DataInputStream(socket.getInputStream());
+            add(new Board(in_stream));
+            setTitle("BreakoutTEC");
 
-        add(new Board());
-        setTitle("BreakoutTEC");
-
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setResizable(false);
-        pack();
+            setDefaultCloseOperation(EXIT_ON_CLOSE);
+            setLocationRelativeTo(null);
+            setResizable(false);
+            pack();
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        
     }
 
     public static void main(String[] args) {
