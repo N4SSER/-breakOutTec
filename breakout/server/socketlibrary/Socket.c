@@ -4,7 +4,7 @@
 * Funciones de lectura y escritura en sockets
 *
 * MODIFICACIONES:
-* 4 Septiembre 2003: Añadidas funciones para sockets UDP.
+* 4 Septiembre 2003: A�adidas funciones para sockets UDP.
 */
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -140,16 +140,16 @@ int Escribe_Socket (int fd, char *Datos, int Longitud)
 }
 
 /**
- * Lee un mensaje de un socket udp. Los parámetros que se pasan son:
+ * Lee un mensaje de un socket udp. Los par�metros que se pasan son:
  * - Descriptor fd del socket del que se quiere leer.
- * - Estructura Remoto, en la que se devolverá los datos del que ha enviado el
+ * - Estructura Remoto, en la que se devolver� los datos del que ha enviado el
  * mensaje que acabamos de leer.
- * - Longitud_Remoto de la estructura anterior. Debe pasarse relleno con el tamaño
- * de Remoto y se devolverá rellena con el tamaño de los datos en Remoto.
+ * - Longitud_Remoto de la estructura anterior. Debe pasarse relleno con el tama�o
+ * de Remoto y se devolver� rellena con el tama�o de los datos en Remoto.
  * - Buffer de Datos donde se quiere que aparezca el mensaje.
  * - Longitud_Datos del buffer anterior.
  *
- * Devuelve el número de bytes leidos o -1 en caso de error.
+ * Devuelve el n�mero de bytes leidos o -1 en caso de error.
  */
 int Lee_Socket_Udp (
 	int fd, struct sockaddr *Remoto, socklen_t *Longitud_Remoto,
@@ -229,10 +229,10 @@ int Lee_Socket_Udp (
 * Escribe dato en el socket cliente. Devuelve numero de bytes escritos,
 * o -1 si hay error.
 * - fd es el descriptor del socket.
-* - Remoto es el destinatario del mensaje, a quién se lo queremos enviar. 
-* - Longitud_Remoto es el tamaño de Remoto en bytes.
+* - Remoto es el destinatario del mensaje, a qui�n se lo queremos enviar. 
+* - Longitud_Remoto es el tama�o de Remoto en bytes.
 * - Datos es el mensaje que queremos enviar.
-* - Longitud_Datos es el tamaño del mensaje en bytes.
+* - Longitud_Datos es el tama�o del mensaje en bytes.
 */
 int Escribe_Socket_Udp (int fd, struct sockaddr *Remoto, 
 	socklen_t Longitud_Remoto, char *Datos, int Longitud_Datos)
@@ -291,13 +291,13 @@ int Escribe_Socket_Udp (int fd, struct sockaddr *Remoto,
 
 /**
  * Rellena una estructura sockaddr_in con los datos que se le pasan. Esta estrutura es
- * útil para el envio o recepción de mensajes por sockets Udp o para abrir conexiones.
- * Se le pasa el host. Puede ser NULL (para abrir socket servidor Udp o para recepción de
+ * �til para el envio o recepci�n de mensajes por sockets Udp o para abrir conexiones.
+ * Se le pasa el host. Puede ser NULL (para abrir socket servidor Udp o para recepci�n de
  * mensajes de cualquier host).
  * Se le pasa el servicio. Puede ser NULL (para abrir socket cliente Udp).
- * Se le pasa una estructura sockaddr_in que devolverá rellena.
- * Se le pasa una Longitud. Debe contener el tamaño de la estructura sockaddr_in y
- * devolverá el tamaño de la estructura una vez rellena.
+ * Se le pasa una estructura sockaddr_in que devolver� rellena.
+ * Se le pasa una Longitud. Debe contener el tama�o de la estructura sockaddr_in y
+ * devolver� el tama�o de la estructura una vez rellena.
  * Devuelve -1 en caso de error.
  */
 int Dame_Direccion_Udp (char *Host, char *Servicio, struct sockaddr_in *Servidor,
@@ -306,7 +306,7 @@ int Dame_Direccion_Udp (char *Host, char *Servicio, struct sockaddr_in *Servidor
    struct servent *Puerto;
    struct hostent *Maquina;
   
-   /* Comprobación de parámetros */
+   /* Comprobaci�n de par�metros */
    if (Servidor == NULL) return -1;
 
    /* Relleno del primer campo de la estructura */
@@ -315,7 +315,7 @@ int Dame_Direccion_Udp (char *Host, char *Servicio, struct sockaddr_in *Servidor
    /* Si nos han pasado un host ... */
    if (Host != NULL)
    {
-      /* ... obtenemos la dirección del host y la ponemos en la estructura */
+      /* ... obtenemos la direcci�n del host y la ponemos en la estructura */
       Maquina = gethostbyname (Host);
       if (Maquina == NULL)
          return -1;

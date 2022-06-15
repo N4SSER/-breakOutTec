@@ -1,6 +1,5 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory '/home/abner/Desktop/TC3/breakOutTec/breakout/server'
-cc -g -I. -I/home/abner/Desktop/TC3/breakOutTec/breakout/server/socketlibrary   -c -o Mainserver.o Mainserver.c
-cc   Mainserver.o   -o Mainserver
+cc Mainserver.o -lpthread -L/home/abner/Desktop/TC3/breakOutTec/breakout/server/socketlibrary -lChSocket -o Mainserver
 make: Leaving directory '/home/abner/Desktop/TC3/breakOutTec/breakout/server'
  

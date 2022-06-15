@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jun 14 14:30:31 2022
+# Make data base, printed on Tue Jun 14 20:52:35 2022
 
 # Variables
 
@@ -19,7 +19,7 @@ NO_AT_BRIDGE = 1
 # makefile (from 'Makefile', line 4)
 PATH_CHSOCKET = /home/abner/Desktop/TC3/breakOutTec/breakout/server/socketlibrary
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-d8db68c3-bb8e-49de-8a56-1c47ea67f12e.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-3ad20dac-5086-4fcf-a842-a61fe34f1348.sock
 # environment
 LC_NAME = es_CR.UTF-8
 # environment
@@ -79,7 +79,7 @@ APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_AUTH_SOCK = /tmp/ssh-XXXXXXpiOlu1/agent.1020
+SSH_AUTH_SOCK = /tmp/ssh-XXXXXXGOIill/agent.1361
 # default
 .SHELLFLAGS := -c
 # environment
@@ -95,13 +95,13 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 2219
+VSCODE_PID = 4256
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/abner-inspiron157000gaming:@/tmp/.ICE-unix/970,unix/abner-inspiron157000gaming:/tmp/.ICE-unix/970
+SESSION_MANAGER = local/abner-inspiron157000gaming:@/tmp/.ICE-unix/1311,unix/abner-inspiron157000gaming:/tmp/.ICE-unix/1311
 # automatic
 *F = $(notdir $*)
 # environment
@@ -177,7 +177,7 @@ MAKE_VERSION := 4.3
 # environment
 LC_MEASUREMENT = es_CR.UTF-8
 # environment
-SSH_AGENT_PID = 1021
+SSH_AGENT_PID = 1362
 # environment
 _ = /usr/bin/make
 # environment
@@ -225,7 +225,7 @@ GDMSESSION = xfce
 # environment
 LC_IDENTIFICATION = es_CR.UTF-8
 # variable set hash-table stats:
-# Load=107/1024=10%, Rehash=0, Collisions=6/137=4%
+# Load=107/1024=10%, Rehash=0, Collisions=6/141=4%
 
 # Pattern-specific Variable Values
 
@@ -233,9 +233,9 @@ LC_IDENTIFICATION = es_CR.UTF-8
 
 # Directories
 
-# . (device 2067, inode 2668096): 9 files, no impossibilities.
+# . (device 2067, inode 2668096): 10 files, no impossibilities.
 
-# 9 files, no impossibilities in 1 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -245,14 +245,15 @@ LC_IDENTIFICATION = es_CR.UTF-8
 
 # Not a target:
 Mainserver.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-06-14 20:52:18.074998341
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-14 14:30:06.80272808
+#  Last modified 2022-06-14 20:51:59.911374642
 #  File has been updated.
 #  Successfully updated.
 
@@ -269,41 +270,63 @@ clean:
 #  Modification time never checked.
 #  File has not been updated.
 
-all: Mainserver
+all: S
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has not been updated.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
 
-Server: Mainserver.o
+# Not a target:
+.SUFFIXES:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 8):
-	cc Mainserver.o -L$(PATH_CHSOCKET) -lChSocket -o Mainserver
 
-# Not a target:
-Mainserver:
-#  Implicit rule search has been done.
+S: Mainserver.o
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
 #  File does not exist.
-#  File has not been updated.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := S
+ 
+# automatic
+# * := 
+# automatic
+# < := Mainserver.o
+# automatic
+# + := Mainserver.o
+# automatic
+# % := 
+# automatic
+# ^ := Mainserver.o
+# automatic
+# ? := Mainserver.o
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
+#  recipe to execute (from 'Makefile', line 8):
+	cc Mainserver.o -lpthread -L$(PATH_CHSOCKET) -lChSocket -o Mainserver
 
 # files hash-table stats:
-# Load=8/1024=1%, Rehash=0, Collisions=0/21=0%
+# Load=7/1024=1%, Rehash=0, Collisions=0/22=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 17 / storage = 159 B / avg = 9 B
-# current buf: size = 8162 B / used = 159 B / count = 17 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 17 / storage = 152 B / avg = 8 B
+# current buf: size = 8162 B / used = 152 B / count = 17 / avg = 8 B
 
-# strcache performance: lookups = 26 / hit rate = 34%
+# strcache performance: lookups = 28 / hit rate = 39%
 # hash-table stats:
-# Load=17/8192=0%, Rehash=0, Collisions=0/26=0%
-# Finished Make data base on Tue Jun 14 14:30:31 2022
+# Load=17/8192=0%, Rehash=0, Collisions=0/28=0%
+# Finished Make data base on Tue Jun 14 20:52:35 2022
 
  
-make: *** No rule to make target 'Mainserver', needed by 'all'.  Stop.
-
