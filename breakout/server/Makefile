@@ -1,7 +1,7 @@
 #MakeFile para construccion de Server
 all : S
 
-PATH_CHSOCKET=/home/abner/Desktop/TC3/breakOutTec/breakout/server/socketlibrary
+PATH_CHSOCKET=/home/kcx/Documents/TC3/breakOutTec/breakout/server/socketlibrary
 CFLAGS = -g -I. -I$(PATH_CHSOCKET)
 
 S : Mainserver.o

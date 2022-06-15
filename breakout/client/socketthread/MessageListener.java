@@ -1,7 +1,7 @@
 package client.socketthread;
 import client.sprites.*;
 
-public class MessageListener extends Thread{
+public class MessageListener extends Thread implements Listener{
     public Board board;
     public MessageListener(Board board){
         this.board = board;

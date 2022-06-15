@@ -229,11 +229,11 @@ public class Board extends JPanel implements Constants {
                 (Constants.WIDTH - fontMetrics.stringWidth( "\nYour score: " + String.valueOf(score))) / 2,
                 Constants.WIDTH / 3);
         if(message.equals("Game Over")){
-            var ii = new ImageIcon("client/sprites/resources/lose.png");
+            var ii = new ImageIcon("breakout/client/sprites/resources/lose.png");
             g2d.drawImage(ii.getImage(), 370, 230, 150, 150, null);
         }
         else{
-            var ii = new ImageIcon("client/sprites/resources/win.png");
+            var ii = new ImageIcon("breakout/client/sprites/resources/win.png");
             g2d.drawImage(ii.getImage(), 0, 140, 250, 250, null);
         }
         g2d.dispose();
