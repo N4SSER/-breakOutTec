@@ -76,7 +76,7 @@ public class Board extends JPanel implements Constants {
                     /**
                      * looping through the bricks of the selected group to change the value of the points
                      */
-                    for (java.lang.Integer i = (levelfactor-25);i<levelfactor;i++){
+                    for (java.lang.Integer i = (levelfactor-25);i<(levelfactor+1);i++){
                         bricks[i].set_Points(number2);
                         System.out.println("Brick "+i+" with "+number2+" points");
                     }
