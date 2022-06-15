@@ -390,7 +390,8 @@ public class Board extends JPanel implements Constants {
                         bricks[k].hit();
                         //If brick is destroyed ask the server
                         if(bricks[k].isDestroyed()){
-                            score+=bricks[i].getPoints();
+                            score+=bricks[k].getPoints();
+                            
                             paddle.resize(1, bricks[k].getColor()+".png");
                             switch(bricks[k].getSurprise())
                             {
