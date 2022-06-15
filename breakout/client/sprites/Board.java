@@ -8,6 +8,10 @@ import java.util.StringTokenizer;
 import java.util.Vector;
 import client.socketthread.*;
 
+/**
+ * Contains most of the logic of the gameplay
+ * It is extended from JPanel to draw an image on the screen
+ */
 public class Board extends JPanel implements Constants {
 
     private Timer timer;
@@ -20,12 +24,19 @@ public class Board extends JPanel implements Constants {
     private String message = "Game Over";
     private DataInputStream in_stream;
 
+    /**
+     * It instantiates the a Board with a datinputstream
+     * @param in_stream to handle the commands from a server
+     */
     public Board(DataInputStream in_stream) {
         this.in_stream = in_stream;
         initBoard();
     }
 
 
+    /**
+     * Initializes board
+     */
     private void initBoard() {
 
         addKeyListener(new TAdapter());
@@ -36,6 +47,10 @@ public class Board extends JPanel implements Constants {
 
     }
 
+
+    /**
+     * Function that checks for commands from the server in a loop
+     */
     public void checkMessages(){
         while(true){
             try {
@@ -94,6 +109,10 @@ public class Board extends JPanel implements Constants {
             }
         }
     }
+
+    /**
+     * Starts the game
+     */
     private void gameInit() {
 
         bricks = new Brick[Constants.N_OF_BRICKS];
@@ -146,6 +165,11 @@ public class Board extends JPanel implements Constants {
         Toolkit.getDefaultToolkit().sync();
     }
 
+    /**
+     * Draws the objects on screen, checks if bricks are destroyed, so it doesn't draw them
+     * 
+     * @param g2d
+     */
     private void drawObjects(Graphics2D g2d) {
 
         var font = new Font("Monospaced", Font.BOLD, 18);
@@ -177,6 +201,10 @@ public class Board extends JPanel implements Constants {
         }
     }
 
+    /**
+     * Checks the end of the game
+     * @param g2d
+     */
     private void gameFinished(Graphics2D g2d) {
 
         var font = new Font("Monospaced", Font.BOLD, 18);
@@ -218,6 +246,9 @@ public class Board extends JPanel implements Constants {
         }
     }
 
+    /**
+     * Handles the Events so the game cycles through the necessary processess
+     */
     private class GameCycle implements ActionListener {
 
         @Override
@@ -244,6 +275,10 @@ public class Board extends JPanel implements Constants {
         timer.stop();
     }
 
+    /**
+     * Checks for collisions between the ball and the bricks, paddle and walls
+     * Contains a lot of the logic of the gameplay, since it is collision based
+     */
     private void checkCollision() {
         
         for(java.lang.Integer i = 0; i<vBall.size();i++){

@@ -1,15 +1,28 @@
 package client.sprites;
 import java.awt.event.*;
 import javax.swing.*;
+
+/**
+ * Paddle extends the class Sprite
+ * It modeles the paddle that the player controls during gamplay
+ */
 public class Paddle extends Sprite  {
 
     private java.lang.Integer dx;
     private static Paddle paddle = null;
 
+    /**
+     * Constructor
+     */
     private Paddle() {
 
         initPaddle();
     }
+
+    /**
+     * singleton instantiations
+     * @return 
+     */
     public static Paddle getInstancPaddle()
     {
         if(paddle == null)
@@ -17,6 +30,10 @@ public class Paddle extends Sprite  {
 
         return paddle;
     }
+
+    /**
+     * Ititializes the paddle
+     */
     private void initPaddle() {
         dx = 0;
         loadImage();
@@ -25,12 +42,19 @@ public class Paddle extends Sprite  {
         resetState();
     }
 
+    /**
+     * Loads the image to the paddle
+     */
     private void loadImage() {
 
         var ii = new ImageIcon("breakout/client/sprites/resources/paddle.png");
         image = ii.getImage();
         
     }
+
+    /**
+     * handles the events of key strokes to change the padddle's postiion
+     */
     void move() {
 
         x += dx;
@@ -76,12 +100,20 @@ public class Paddle extends Sprite  {
         }
     }
 
+    /**
+     * makes the paddle return to default position
+     */
     private void resetState() {
 
         x = Constants.INIT_PADDLE_X;
         y = Constants.INIT_PADDLE_Y;
     }
 
+    /**
+     * Changes the size of the paddle
+     * @param size
+     * @param s
+     */
     void resize(java.lang.Integer size, String s)
     {
         var ii = new ImageIcon("breakout/client/sprites/resources/"+s);

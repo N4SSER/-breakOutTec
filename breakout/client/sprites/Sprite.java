@@ -1,5 +1,9 @@
 package client.sprites;
 import java.awt.*;
+
+/**
+ * Class from wich all of the elements on screen are subclasses of
+ */
 public class Sprite {
 
     java.lang.Integer x;
@@ -18,6 +22,7 @@ public class Sprite {
         return x;
     }
 
+    
     protected void setY(java.lang.Integer y) {
 
         this.y = y;
