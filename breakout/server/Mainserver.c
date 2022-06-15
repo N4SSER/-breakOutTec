@@ -7,6 +7,10 @@
 #include <string.h>
 #include <netinet/in.h>
 
+/**
+ * @brief struct with players info for checking its messages
+ * 
+ */
 struct player_msg_info{
             int socketcliente;
             char *datos;
@@ -14,16 +18,6 @@ struct player_msg_info{
             int *flag;
 };
 
-
-/*
-Checks incoming messages from server and prints them on screen
-*/
-/*void * checkMessages(int socketcliente, char *Datos, int longitud, int *flag){
-    while (*flag>0){
-        if(Lee_Socket(socketcliente, Datos, longitud)>0)
-            printf("Recibido: %s", Datos);     
-    }
-}*/
 
 /*
 Mensajes para observador
@@ -52,7 +46,10 @@ int main()
     char message[15];
     pthread_t listen_to_messages;
     
-    //Abre el socket server
+    /**
+     * @brief opens socket from cpp_java service in /etc/services wich is translated to port 35557
+     * 
+     */
     Socket_Servidor = Abre_Socket_Inet("cpp_java");
     if (Socket_Servidor == -1){
         printf ("No se puede abrir socket del servidor\n");
@@ -61,10 +58,17 @@ int main()
         printf ("Socket abierto exitosamente\n");
     }
     
-    //Espera cliente
+    /**
+     * @brief waits for clients
+     * 
+     */
     printf("Esperando Clientes...\n");
     Socket_Cliente = Acepta_Conexion_Cliente (Socket_Servidor);
     
+    /**
+     * @brief checks if client connection was succesful
+     * 
+     */
     if (Socket_Cliente == -1){
         printf("No se puede abrir socket del cliente\n");
         exit(-1);
@@ -91,19 +95,28 @@ int main()
     }
 
 
-    /*
-    LISTA DE COMANDOS PARA MODIFICAR LADRILLOS
-    two digits minimum per argument
-    ** ASIGNAR/CAMBIAR PUNTUACION A NIVEL:              1 <1-3> <puntos>
-    ** ASIGNAR VIDAS A LADRILLO ESPECIFICO:             2 <i> <j>
-    ** ASIGNAR BOLA A LADRILLO ESPECIFICO:              3 <i> <j>
-    ** ASIGNAR RAQUETA DOBLE A LADRILLO ESPECIFICO:     4 <i> <j>
-    ** ASIGNAR RAQUETA MITAS LADRILLO ESPECIFICO:       5 <i> <j>
-    ** ASIGNAR VELOCIDAD MAS A LADRILLO ESPECIFICO:     6 <i> <j>
-    ** ASIGNAR VELOCIDAD MENOS A LADRILLO ESPECIFICO:   7 <i> <j>
-    */
+    
+    char commands1[] = "LISTA DE COMANDOS PARA MODIFICAR LADRILLOS\n";
+    char commands2[]="two digits minimum per argument\n";
+    char commands3[]="** ASIGNAR/CAMBIAR PUNTUACION A NIVEL:              1 <1-3> <puntos>\n";
+    char commands4[]="** ASIGNAR VIDAS A LADRILLO ESPECIFICO:             2 <i> <j>\n";
+    char commands5[]="** ASIGNAR BOLA A LADRILLO ESPECIFICO:              3 <i> <j>\n";
+    char commands6[]="** ASIGNAR RAQUETA DOBLE A LADRILLO ESPECIFICO:     4 <i> <j>\n";
+    char commands7[]="** ASIGNAR RAQUETA MITAS LADRILLO ESPECIFICO:       5 <i> <j>\n";
+    char commands8[]="** ASIGNAR VELOCIDAD MAS A LADRILLO ESPECIFICO:     6 <i> <j>\n";
+    char commands9[]="** ASIGNAR VELOCIDAD MENOS A LADRILLO ESPECIFICO:   7 <i> <j>\n";
+    
 
     while(flag_on>0){
+        printf(commands1);
+        printf(commands2);
+        printf(commands3);
+        printf(commands4);
+        printf(commands5);
+        printf(commands6);
+        printf(commands7);
+        printf(commands8);
+        printf(commands9);
         printf("Esperando comandos...\n");
         scanf("%s",message);
 
