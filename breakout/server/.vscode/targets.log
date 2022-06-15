@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jun 15 10:56:40 2022
+# Make data base, printed on Wed Jun 15 14:33:52 2022
 
 # Variables
 
@@ -19,7 +19,7 @@ NO_AT_BRIDGE = 1
 # makefile (from 'Makefile', line 4)
 PATH_CHSOCKET = /home/abner/Desktop/TC3/breakOutTec/breakout/server/socketlibrary
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-fe858bd1-0caf-4240-875d-1018f92a349d.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-595bc21f-ee9e-4a4a-b410-42148a09112b.sock
 # environment
 LC_NAME = es_CR.UTF-8
 # environment
@@ -79,7 +79,7 @@ APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_AUTH_SOCK = /tmp/ssh-XXXXXXKXjmWA/agent.978
+SSH_AUTH_SOCK = /tmp/ssh-XXXXXXIMeQgr/agent.976
 # default
 .SHELLFLAGS := -c
 # environment
@@ -95,13 +95,13 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 1275
+VSCODE_PID = 1282
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/abner-inspiron157000gaming:@/tmp/.ICE-unix/928,unix/abner-inspiron157000gaming:/tmp/.ICE-unix/928
+SESSION_MANAGER = local/abner-inspiron157000gaming:@/tmp/.ICE-unix/926,unix/abner-inspiron157000gaming:/tmp/.ICE-unix/926
 # automatic
 *F = $(notdir $*)
 # environment
@@ -177,7 +177,7 @@ MAKE_VERSION := 4.3
 # environment
 LC_MEASUREMENT = es_CR.UTF-8
 # environment
-SSH_AGENT_PID = 979
+SSH_AGENT_PID = 977
 # environment
 _ = /usr/bin/make
 # environment
@@ -246,7 +246,7 @@ LC_IDENTIFICATION = es_CR.UTF-8
 # Not a target:
 Mainserver.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-15 10:00:13.63787644
+#  Last modified 2022-06-15 12:04:19.456169214
 #  File has been updated.
 #  Successfully updated.
 
@@ -285,7 +285,6 @@ all: S
 #  Modification time never checked.
 #  File has not been updated.
 
- 
 S: Mainserver.o
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
@@ -327,6 +326,6 @@ S: Mainserver.o
 # strcache performance: lookups = 26 / hit rate = 42%
 # hash-table stats:
 # Load=15/8192=0%, Rehash=0, Collisions=0/26=0%
-# Finished Make data base on Wed Jun 15 10:56:40 2022
+# Finished Make data base on Wed Jun 15 14:33:52 2022
 
  
