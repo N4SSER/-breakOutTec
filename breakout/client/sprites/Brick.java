@@ -90,7 +90,7 @@ public class Brick extends Sprite {
      * @return integer representing the ammount of points that the brick gives if destroyed
      */
     java.lang.Integer getPoints(){
-        return points;
+        return this.points;
     }
 
     /**
@@ -105,7 +105,7 @@ public class Brick extends Sprite {
      * sets points to n
      * @param n
      */
-    void set_Points(int n){
+    void set_Points(java.lang.Integer n){
         this.points = n;
     }
 
@@ -113,7 +113,7 @@ public class Brick extends Sprite {
      * sets hits to n
      * @param n
      */
-    void set_hits(int n){
+    void set_hits(java.lang.Integer n){
         this.hits = n;
     }
 
@@ -121,7 +121,7 @@ public class Brick extends Sprite {
      * sets surprise to n
      * @param n
      */
-    void set_surprise(int n){
+    void set_surprise(java.lang.Integer n){
         this.surprise = n;
     }
 }

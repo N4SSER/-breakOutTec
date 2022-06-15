@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jun 15 09:25:01 2022
+# Make data base, printed on Wed Jun 15 10:56:41 2022
 
 # Variables
 
@@ -19,7 +19,7 @@ LC_ALL = C
 # environment
 NO_AT_BRIDGE = 1
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-df7383b7-50ec-415c-b51b-6f7dc565fc82.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-153e9036-95ec-4349-ada4-f130d1dc0aca.sock
 # environment
 LC_NAME = es_CR.UTF-8
 # environment
@@ -79,7 +79,7 @@ APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_AUTH_SOCK = /tmp/ssh-XXXXXXqenTKq/agent.1012
+SSH_AUTH_SOCK = /tmp/ssh-XXXXXXKXjmWA/agent.978
 # default
 .SHELLFLAGS := -c
 # environment
@@ -95,13 +95,13 @@ MAKEFILE_LIST :=
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 1344
+VSCODE_PID = 1275
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/abner-inspiron157000gaming:@/tmp/.ICE-unix/962,unix/abner-inspiron157000gaming:/tmp/.ICE-unix/962
+SESSION_MANAGER = local/abner-inspiron157000gaming:@/tmp/.ICE-unix/928,unix/abner-inspiron157000gaming:/tmp/.ICE-unix/928
 # automatic
 *F = $(notdir $*)
 # environment
@@ -177,7 +177,7 @@ MAKE_VERSION := 4.3
 # environment
 LC_MEASUREMENT = es_CR.UTF-8
 # environment
-SSH_AGENT_PID = 1013
+SSH_AGENT_PID = 979
 # environment
 _ = /usr/bin/make
 # environment
@@ -284,12 +284,15 @@ GNUmakefile:
 # No general ('VPATH' variable) search path.
  
 
+ 
 # strcache buffers: 1 (0) / strings = 15 / storage = 131 B / avg = 8 B
+ 
 # current buf: size = 8162 B / used = 131 B / count = 15 / avg = 8 B
+ 
 
 # strcache performance: lookups = 18 / hit rate = 16%
 # hash-table stats:
 # Load=15/8192=0%, Rehash=0, Collisions=0/18=0%
-# Finished Make data base on Wed Jun 15 09:25:01 2022
+# Finished Make data base on Wed Jun 15 10:56:41 2022
 
  

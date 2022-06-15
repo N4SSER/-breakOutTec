@@ -98,13 +98,13 @@ int main()
     
     char commands1[] = "LISTA DE COMANDOS PARA MODIFICAR LADRILLOS\n";
     char commands2[]="two digits minimum per argument\n";
-    char commands3[]="** ASIGNAR/CAMBIAR PUNTUACION A NIVEL:              1 <1-3> <puntos>\n";
-    char commands4[]="** ASIGNAR VIDAS A LADRILLO ESPECIFICO:             2 <i> <j>\n";
-    char commands5[]="** ASIGNAR BOLA A LADRILLO ESPECIFICO:              3 <i> <j>\n";
-    char commands6[]="** ASIGNAR RAQUETA DOBLE A LADRILLO ESPECIFICO:     4 <i> <j>\n";
-    char commands7[]="** ASIGNAR RAQUETA MITAS LADRILLO ESPECIFICO:       5 <i> <j>\n";
-    char commands8[]="** ASIGNAR VELOCIDAD MAS A LADRILLO ESPECIFICO:     6 <i> <j>\n";
-    char commands9[]="** ASIGNAR VELOCIDAD MENOS A LADRILLO ESPECIFICO:   7 <i> <j>\n";
+    char commands3[]="** ASIGNAR/CAMBIAR PUNTUACION A NIVEL:              1,<1-3>,<puntos>\n";
+    char commands4[]="** ASIGNAR VIDAS A LADRILLO ESPECIFICO:             2,<i>,<j>\n";
+    char commands5[]="** ASIGNAR BOLA A LADRILLO ESPECIFICO:              3,<i>,<j>\n";
+    char commands6[]="** ASIGNAR RAQUETA DOBLE A LADRILLO ESPECIFICO:     4,<i>,<j>\n";
+    char commands7[]="** ASIGNAR RAQUETA MITAS LADRILLO ESPECIFICO:       5,<i>,<j>\n";
+    char commands8[]="** ASIGNAR VELOCIDAD MAS A LADRILLO ESPECIFICO:     6,<i>,<j>\n";
+    char commands9[]="** ASIGNAR VELOCIDAD MENOS A LADRILLO ESPECIFICO:   7,<i>,<j>\n";
     
 
     while(flag_on>0){
